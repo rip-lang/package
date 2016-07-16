@@ -18,6 +18,15 @@ module Rip::Package
       @is_osi
     end
 
+    def inspect
+      approval = ' [osi]' if osi?
+      "#<#{self.class.name} #{to_s}#{approval}>"
+    end
+
+    def to_s
+      osi? ? name : path
+    end
+
     def self.extract(license)
       case license
       when Pathname

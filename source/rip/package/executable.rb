@@ -8,6 +8,14 @@ module Rip::Package
       @output = output
     end
 
+    def inspect
+      "#<#{self.class.name} #{to_s}>"
+    end
+
+    def to_s
+      "#{root_module} => #{output}"
+    end
+
     def self.extract(executables)
       project_root = executables.delete(:_package_root)
 

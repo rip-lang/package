@@ -16,6 +16,25 @@ module Rip::Package
       @build = parts.build
     end
 
+    def inspect
+      "#<#{self.class.name} #{to_s}>"
+    end
+
+    def to_s
+      base = "#{major}.#{minor}.#{patch}"
+
+      case
+      when pre_release && build
+        "#{base}-#{pre_release}+#{build}"
+      when pre_release
+        "#{base}-#{pre_release}"
+      when build
+        "#{base}+#{build}"
+      else
+        base
+      end
+    end
+
     def self.extract(version)
       begin
         new(Semverse::Version.new(version))

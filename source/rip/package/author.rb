@@ -11,6 +11,14 @@ module Rip::Package
       @email = email
     end
 
+    def inspect
+      "#<#{self.class.name} #{to_s}>"
+    end
+
+    def to_s
+      "\"#{name}\" <#{email}>"
+    end
+
     def self.extract(authors)
       authors.map(&method(:new))
     end

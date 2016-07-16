@@ -6,6 +6,10 @@ module Rip::Package
       @name = name
     end
 
+    def inspect
+      "#<#{self.class.name} #{to_s}>"
+    end
+
     def self.extract(dependencies)
       dependencies.map do |name, options|
         expand_constraints(name, options)
@@ -47,6 +51,11 @@ module Rip::Package
       @vary = vary.to_sym
       @repository = repository
     end
+
+    def to_s
+      repo = " #{repository}" if repository
+      "#{name} #{version} [#{vary}]#{repo}"
+    end
   end
 
   class GitDependency < Dependency
@@ -58,6 +67,10 @@ module Rip::Package
       @repository = git
       @commit = commit
     end
+
+    def to_s
+      "#{name} #{repository}##{commit}"
+    end
   end
 
   class PathDependency < Dependency
@@ -66,6 +79,10 @@ module Rip::Package
     def initialize(name, package_root:, path:)
       super(name)
       @package_root = package_root.join(path).expand_path
+    end
+
+    def to_s
+      "#{name} #{package_root}"
     end
   end
 end
