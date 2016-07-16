@@ -29,7 +29,7 @@ foo = "2.0.1"
 
 bar = { version = "2.0.1", vary = "minor" }
 
-baz = { version = "2.0.1", exact = true }
+baz = { version = "2.0.1", vary = "exact" }
 
 bax = { version = "0.1.2", vary = "patch", repository = "https://packages.example.com/" }
 

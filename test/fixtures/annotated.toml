@@ -78,7 +78,7 @@ foo = "2.0.1"
 bar = { version = "2.0.1", vary = "minor" }
 
 # match the version exactly
-baz = { version = "2.0.1", exact = true }
+baz = { version = "2.0.1", vary = "exact" }
 
 # use a alternative repository and only accept patch-level changes
 bax = { version = "0.1.2", vary = "patch", repository = "https://packages.example.com/" }

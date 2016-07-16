@@ -27,20 +27,25 @@ module Rip::Package
   end
 
   class VersionDependency < Dependency
+    VARY_OPTIONS = [
+      :major,
+      :minor,
+      :patch,
+      :pre_release,
+      :build,
+      :exact
+    ]
+
     attr_reader :version
     attr_reader :vary
     attr_reader :repository
 
-    def initialize(name, version:, vary: 'minor', exact: false, repository: nil)
+    def initialize(name, version:, vary: :minor, repository: nil)
+      raise Rip::Package::InvalidMetadata, "`vary` must be one of #{VARY_OPTIONS.join(', ')} exactly" unless VARY_OPTIONS.include?(vary.to_sym)
       super(name)
       @version = Rip::Package::Version.extract(version)
-      @vary = vary
-      @is_exact = exact
+      @vary = vary.to_sym
       @repository = repository
-    end
-
-    def exact?
-      @is_exact
     end
   end
 
