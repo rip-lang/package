@@ -1,0 +1,45 @@
+name = "mighty_foo"
+
+version = "1.3.8"
+
+license_file = "LICENSE.txt"
+
+homepage = "http://www.rip-lang.org/"
+
+description = """
+Describe the package here. Optionally use markdown.
+"""
+
+[[authors]]
+name = "Thomas Ingram"
+email = "first@example.com"
+
+[[authors]]
+name = "Allea Ingram"
+email = "second@example.com"
+
+[executables]
+"source/main.rip" = "build/rip-spec"
+
+[extra]
+answer = { life = 42, universe = 42, everything = 42 }
+
+[dependencies]
+foo = "2.0.1"
+
+bar = { version = "2.0.1", vary = "minor" }
+
+baz = { version = "2.0.1", exact = true }
+
+bax = { version = "0.1.2", vary = "patch", repository = "https://packages.example.com/" }
+
+rip = { git = "git@github.com:rip-lang/rip.git" }
+
+nip = { git = "git@github.com:rip-lang/rip.git", commit = "special-feature" }
+tip = { git = "git@github.com:rip-lang/rip.git", commit = "v1.2.3" }
+
+sip = { git = "git@github.com:rip-lang/rip.git", commit = "7913a93d" }
+
+fip = { git = "../rip-rip" }
+
+xxx = { path = "../bax-core" }

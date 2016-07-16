@@ -1,0 +1,7 @@
+name = "foo"
+
+version = "1.2.3"
+
+license = "MIT"
+
+author = { name = "Thomas Ingram", email = "author@example.com" }
