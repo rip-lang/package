@@ -12,7 +12,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = [ 'source' ]
 
   spec.add_runtime_dependency 'hashie'
-  spec.add_runtime_dependency 'parslet'
   spec.add_runtime_dependency 'semverse'
   spec.add_runtime_dependency 'tomlrb'
 
@@ -20,5 +19,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'pry-doc'
   spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'ruby-prof'
 end
